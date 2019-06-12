@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     },
     swipImg: {
         height: '100%',
-        width: '100%'
+        width: '100%',
     },
     iconFlex: {
         width:'100%',
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         marginVertical: 20
-    }
+    },
   })
 
 export default class home extends React.Component {
@@ -60,6 +60,7 @@ export default class home extends React.Component {
                             {this.state.imgData.map((item,index)=>{
                                 return <Image source={{ uri :item }} key={index} style={styles.swipImg} resizeMode='cover'></Image>
                             })}
+                           
                         </Swiper>
                     </View>
 
@@ -85,7 +86,7 @@ export default class home extends React.Component {
                         </View>
                         
                         <View style={styles.iconView}  >
-                            <TouchableOpacity style={{alignItems: 'center'}} activeOpacity={1} onPress={() => this.Actions.movieList()}>
+                            <TouchableOpacity style={{alignItems: 'center'}} onPress={() => this.Actions.movieHome()}>
                                 <Image source={require("../image/6.png")} style={styles.iconImg} ></Image>
                                 <Text>电影</Text>
                             </TouchableOpacity>

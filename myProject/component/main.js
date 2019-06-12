@@ -5,6 +5,7 @@ import TabNavigator  from 'react-native-tab-navigator'
 import { Actions } from 'react-native-router-flux';
 
 React.Component.prototype.Actions = Actions
+React.Component.prototype.BaseURL  = 'https://douban.uieee.com/v2/movie/'
 
 import Icon from 'react-native-vector-icons/Ionicons'
 
