@@ -1,5 +1,5 @@
 import React from 'react'
-import {  View ,  Text , FlatList , ActivityIndicator , Image , StyleSheet} from 'react-native'
+import {  View ,  Text , FlatList , ActivityIndicator , Image , StyleSheet , TouchableNativeFeedback} from 'react-native'
 
 
 const  Styles = StyleSheet.create({
@@ -69,15 +69,24 @@ export default class movieList extends React.Component {
     ViewList = (item) => {
         
         return (
-            <View style={Styles.ViewList}>
-                <Image  source={{uri : item.images.small}} style={{width:120,height: 160}}></Image>
-                <View style={Styles.ViewSmall}>
-                    <Text>电影名字：{item.title}</Text>
-                    <Text>电影类型：{item.genres.join(',')}</Text>
-                    <Text>电影评分：{item.rating.average}分</Text>
-                    <Text>上映年份：{item.year}年</Text>
+            <TouchableNativeFeedback 
+                background={TouchableNativeFeedback.SelectableBackground()}
+                onPress={ () => this.Actions.movieDetail({
+                    id: item.id,
+                    title: item.title
+                }) }
+            >
+                <View style={Styles.ViewList}>
+                    <Image  source={{uri : item.images.small}} style={{width:120,height: 160}}></Image>
+                    <View style={Styles.ViewSmall}>
+                        <Text>电影名字：{item.title}</Text>
+                        <Text>电影类型：{item.genres.join(',')}</Text>
+                        <Text>电影评分：{item.rating.average}分</Text>
+                        <Text>上映年份：{item.year}年</Text>
+                    </View>
                 </View>
-            </View>
+            </TouchableNativeFeedback>
+            
         )
     }
 

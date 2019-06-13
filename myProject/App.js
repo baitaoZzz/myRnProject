@@ -6,6 +6,7 @@ import { Router, Scene, Stack, Tabs } from 'react-native-router-flux'
 import Main from './component/main'
 
 import MovieList from './component/movie/movieList'
+import MovieDetail from './component/movie/movieDetail';
 
 export default class App extends React.Component {
   render() {
@@ -21,6 +22,12 @@ export default class App extends React.Component {
                   <Scene key='top250' component={ MovieList }    typer='top250'   title='Top250'  hideNavBar={true}></Scene>
               </Tabs>
             
+
+              <Scene key='movieDetail' component={ MovieDetail }   title='电影详情'  
+                navigationBarStyle={{ height: 50,backgroundColor: '#2296F3'}}   
+                titleStyle={{color: '#fff',fontSize: 14}}
+                navBarButtonColor='#fff'
+              ></Scene>
             </Stack>
         </Router>
       </View>
